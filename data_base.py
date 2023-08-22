@@ -29,7 +29,7 @@ def get_users_from_db(id, count, radius):
                                     FROM users
                                     WHERE hypotenuse <={radius} and hypotenuse > 0
                                     LIMIT {count}''')
-        # db_connect.commit()
+        db_connect.commit()
         return make_beautiful(result.fetchall())
 
 
