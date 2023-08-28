@@ -1,0 +1,9 @@
+version: "3"
+  
+servisec:
+  find_neighbors:
+    build . 
+  comand:
+    main.py
+  ports:
+    8001:80
