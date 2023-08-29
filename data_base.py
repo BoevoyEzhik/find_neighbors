@@ -33,6 +33,14 @@ def get_users_from_db(id, count, radius):
         return make_beautiful(result.fetchall())
 
 
+def update_user_to_db(x, y, id):
+    with sqlite3.connect('neighbors.db') as db_connect:
+        cursor = db_connect.cursor()
+        result = cursor.execute('''UPDATE users SET x=?, y=? WHERE id=?''', (x, y, id))
+        db_connect.commit()
+        return result
+
+
 def make_beautiful(sql_request):
     my_dict = (dict(sql_request))
     for key in my_dict.keys():
