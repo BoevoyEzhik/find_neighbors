@@ -25,6 +25,16 @@ def find_neighbors():
     return jsonify(result)
 
 
+@app.route('/change_location')
+def change_location():
+    body_json_data = request.json
+    new_user_x = body_json_data['new_user_x']
+    new_user_y = body_json_data['new_user_y']
+    id = body_json_data['user_id']
+    result = update_user_to_db(new_user_x, new_user_y, id)
+    return jsonify(result)
+
+
 if __name__ == '__main__':
     app.run()
     create_table()
